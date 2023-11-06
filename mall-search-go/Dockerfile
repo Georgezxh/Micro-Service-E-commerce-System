@@ -1,4 +1,4 @@
-# 使用官方的 Golang 镜像作为构建环境
+# use officer Golang 镜像作为构建环境
 FROM golang:1.18 AS build-env
 
 # 设置工作目录
