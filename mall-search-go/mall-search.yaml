@@ -18,6 +18,7 @@ spec:
           ports:
             - containerPort: 8081
 
+# for service
 ---
 apiVersion: v1
 kind: Service
