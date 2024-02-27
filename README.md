@@ -1,7 +1,7 @@
 # Micro Service E-commerce System (Micro-mall)
 
 ## Overview
-Our integrated micro-services e-commerce system is built on a range of technologies including Spring Cloud Alibaba, Spring Boot, Oauth, MyBatis, Docker, Jenkins, Kubernetes, Elasticsearch and more. The project business architecture of this system is divided into a front-end mall and a back-end management system, aiming  at provide a complete e-commerce solution. The front-end mall contains four core modules, which are home portal, the product interface, the user interface and the order process, while the back-end management system also contains four key modules, which are the product module, the order module, the marketing module and privilege module, to support comprehensive business requirements.
+Hello, Our integrated micro-services e-commerce system is built on a range of technologies including Spring Cloud Alibaba, Spring Boot, Oauth, MyBatis, Docker, Jenkins, Kubernetes, Elasticsearch and more. The project business architecture of this system is divided into a front-end mall and a back-end management system, aiming  at provide a complete e-commerce solution. The front-end mall contains four core modules, which are home portal, the product interface, the user interface and the order process, while the back-end management system also contains four key modules, which are the product module, the order module, the marketing module and privilege module, to support comprehensive business requirements.
 
 The Micro-mall System will provide several key benefits, including:
 Micro-service Architecture: Adopting micro-service architecture makes the system easier to expand and maintain, and each microservice can be developed, deployed and upgraded independently.
