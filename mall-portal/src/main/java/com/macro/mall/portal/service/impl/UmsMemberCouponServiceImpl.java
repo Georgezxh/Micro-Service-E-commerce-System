@@ -45,21 +45,21 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
         //获取优惠券信息，判断数量
         SmsCoupon coupon = couponMapper.selectByPrimaryKey(couponId);
         if(coupon==null){
-            Asserts.fail("优惠券不存在");
+            Asserts.fail("Coupon does not exist");
         }
         if(coupon.getCount()<=0){
-            Asserts.fail("优惠券已经领完了");
+            Asserts.fail("The coupons have been collected");
         }
         Date now = new Date();
         if(now.before(coupon.getEnableTime())){
-            Asserts.fail("优惠券还没到领取时间");
+            Asserts.fail("The coupon hasn't been picked up yet");
         }
         //判断用户领取的优惠券数量是否超过限制
         SmsCouponHistoryExample couponHistoryExample = new SmsCouponHistoryExample();
         couponHistoryExample.createCriteria().andCouponIdEqualTo(couponId).andMemberIdEqualTo(currentMember.getId());
         long count = couponHistoryMapper.countByExample(couponHistoryExample);
         if(count>=coupon.getPerLimit()){
-            Asserts.fail("您已经领取过该优惠券");
+            Asserts.fail("You have already claimed the coupon");
         }
         //生成领取优惠券历史
         SmsCouponHistory couponHistory = new SmsCouponHistory();

@@ -118,7 +118,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         }
         //判断购物车中商品是否都有库存
         if (!hasStock(cartPromotionItemList)) {
-            Asserts.fail("库存不足，无法下单");
+            Asserts.fail("Not enough stock to place an order");
         }
         //判断使用使用了优惠券
         if (orderParam.getCouponId() == null) {
@@ -130,7 +130,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
             //使用优惠券
             SmsCouponHistoryDetail couponHistoryDetail = getUseCoupon(cartPromotionItemList, orderParam.getCouponId());
             if (couponHistoryDetail == null) {
-                Asserts.fail("该优惠券不可用");
+                Asserts.fail("This coupon is not available");
             }
             //对下单商品的优惠券进行处理
             handleCouponAmount(orderItemList, couponHistoryDetail);
@@ -146,7 +146,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
             BigDecimal totalAmount = calcTotalAmount(orderItemList);
             BigDecimal integrationAmount = getUseIntegrationAmount(orderParam.getUseIntegration(), totalAmount, currentMember, orderParam.getCouponId() != null);
             if (integrationAmount.compareTo(new BigDecimal(0)) == 0) {
-                Asserts.fail("积分不可用");
+                Asserts.fail("Integral unavailable");
             } else {
                 //可用情况下分摊到可用商品中
                 for (OmsOrderItem orderItem : orderItemList) {
@@ -331,10 +331,10 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         UmsMember member = memberService.getCurrentMember();
         OmsOrder order = orderMapper.selectByPrimaryKey(orderId);
         if(!member.getId().equals(order.getMemberId())){
-            Asserts.fail("不能确认他人订单！");
+            Asserts.fail("Cannot confirm other orders!");
         }
         if(order.getStatus()!=2){
-            Asserts.fail("该订单还未发货！");
+            Asserts.fail("This order has not been shipped yet!");
         }
         order.setStatus(3);
         order.setConfirmStatus(1);
@@ -402,13 +402,13 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         UmsMember member = memberService.getCurrentMember();
         OmsOrder order = orderMapper.selectByPrimaryKey(orderId);
         if(!member.getId().equals(order.getMemberId())){
-            Asserts.fail("不能删除他人订单！");
+            Asserts.fail("Cannot delete orders from others!");
         }
         if(order.getStatus()==3||order.getStatus()==4){
             order.setDeleteStatus(1);
             orderMapper.updateByPrimaryKey(order);
         }else{
-            Asserts.fail("只能删除已完成或已关闭的订单！");
+            Asserts.fail("You can only delete completed or closed orders!");
         }
     }
 
