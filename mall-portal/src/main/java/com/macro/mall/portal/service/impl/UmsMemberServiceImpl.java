@@ -73,7 +73,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     public void register(String username, String password, String telephone, String authCode) {
         //验证验证码
         if(!verifyAuthCode(authCode,telephone)){
-            Asserts.fail("验证码错误");
+            Asserts.fail("Verification code error");
         }
         //查询是否已有该用户
         UmsMemberExample example = new UmsMemberExample();
@@ -81,7 +81,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         example.or(example.createCriteria().andPhoneEqualTo(telephone));
         List<UmsMember> umsMembers = memberMapper.selectByExample(example);
         if (!CollectionUtils.isEmpty(umsMembers)) {
-            Asserts.fail("该用户已经存在");
+            Asserts.fail("The user already exists");
         }
         //没有该用户进行添加操作
         UmsMember umsMember = new UmsMember();
@@ -118,11 +118,11 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         example.createCriteria().andPhoneEqualTo(telephone);
         List<UmsMember> memberList = memberMapper.selectByExample(example);
         if(CollectionUtils.isEmpty(memberList)){
-            Asserts.fail("该账号不存在");
+            Asserts.fail("The account does not exist");
         }
         //验证验证码
         if(!verifyAuthCode(authCode,telephone)){
-            Asserts.fail("验证码错误");
+            Asserts.fail("Verification code error");
         }
         UmsMember umsMember = memberList.get(0);
         umsMember.setPassword(BCrypt.hashpw(password));
@@ -171,7 +171,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     @Override
     public CommonResult login(String username, String password) {
         if(StrUtil.isEmpty(username)||StrUtil.isEmpty(password)){
-            Asserts.fail("用户名或密码不能为空！");
+            Asserts.fail("The username or password cannot be empty!");
         }
         Map<String, String> params = new HashMap<>();
         params.put("client_id", AuthConstant.PORTAL_CLIENT_ID);
