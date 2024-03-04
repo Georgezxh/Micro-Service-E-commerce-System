@@ -10,6 +10,6 @@
             LEFT JOIN pms_product_attribute pa ON pa.id = pcar.product_attribute_id
             LEFT JOIN pms_product_attribute_category pac ON pa.product_attribute_category_id = pac.id
         WHERE
-            pcar.product_category_id = #{id}
+            pcar.product_category_id = #{ida}
     </select>
 </mapper>
