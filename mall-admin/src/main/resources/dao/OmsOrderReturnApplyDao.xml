@@ -56,4 +56,5 @@
             LEFT JOIN oms_company_address ca ON ra.company_address_id = ca.id
         WHERE ra.id=#{id};
     </select>
+    
 </mapper>
