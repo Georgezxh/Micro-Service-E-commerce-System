@@ -8,4 +8,5 @@
             #{item.productId,jdbcType=BIGINT})
         </foreach>
     </insert>
+    
 </mapper>
