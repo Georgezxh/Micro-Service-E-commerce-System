@@ -10,3 +10,7 @@
         </foreach>
     </insert>
 </mapper>
+<!--这个配置定义了一个批量插入操作，将list集合中的每个元素插入到pms_product_category_attribute_relation表中。<foreach>标签被用于遍历list集合，为每个项目创建插入语句的一部分。在这个过程中，每个元素的productCategoryId和productAttributeId属性通过#{}绑定，以确保数据的安全性和正确性：
+
+#{item.productCategoryId,jdbcType=BIGINT}：将item对象的productCategoryId属性安全地绑定为BIGINT类型的参数，用于SQL语句中。
+#{item.productAttributeId,jdbcType=BIGINT}：同样，将item对象的productAttributeId属性安全地绑定为BIGINT类型的参数。-->

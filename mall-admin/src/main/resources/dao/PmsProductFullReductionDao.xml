@@ -4,6 +4,7 @@
     <insert id="insertList">
         INSERT INTO pms_product_full_reduction (product_id, full_price, reduce_price) VALUES
         <foreach collection="list" separator="," item="item" index="index">
+        
             (#{item.productId,jdbcType=BIGINT},
             #{item.fullPrice,jdbcType=DECIMAL},
             #{item.reducePrice,jdbcType=DECIMAL})

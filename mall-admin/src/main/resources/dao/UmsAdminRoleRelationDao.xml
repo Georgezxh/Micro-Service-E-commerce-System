@@ -41,4 +41,5 @@
                 LEFT JOIN ums_admin_role_relation ar ON rr.role_id = ar.role_id
         WHERE rr.resource_id=#{resourceId}
     </select>
+    
 </mapper>

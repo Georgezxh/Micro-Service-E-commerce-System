@@ -10,3 +10,4 @@
         </foreach>
     </insert>
 </mapper>
+<!--通过使用#{}参数绑定语法来安全地插入数据，这种做法利用了JDBC的PreparedStatement，有效防止了SQL注入攻击。->>

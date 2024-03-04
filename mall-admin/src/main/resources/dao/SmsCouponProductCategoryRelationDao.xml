@@ -10,4 +10,5 @@
             #{item.couponId,jdbcType=BIGINT})
         </foreach>
     </insert>
+    
 </mapper>

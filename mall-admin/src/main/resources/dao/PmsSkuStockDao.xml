@@ -28,4 +28,5 @@
             #{item.spData,jdbcType=VARCHAR})
         </foreach>
     </insert>
+    
 </mapper>
