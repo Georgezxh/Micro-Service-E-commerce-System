@@ -60,5 +60,5 @@ Utilize Docker for containerization to ensure consistent environments.
 Implement a CI/CD pipeline for automated testing and deployment.
 Docker Containerization: By packaging the application and its dependencies into Docker containers, the system ensures consistent environments across development, staging, and production. This eliminates the "it works on my machine" problem.
 Automated Testing: As part of the CI pipeline, implement automated testing (unit, integration, and end-to-end tests) to catch regressions and ensure that new features don't break existing functionality.
-Deployment Automation: Implement CD tools to automate the deployment process, ensuring that tested and verified code gets deployed to production with minimal human intervention. Rollback strategies should also be in place in case a deployment introduces unforeseen issues. Thank you.
+Deployment Automation: Implement CD tools to automate the deployment process, ensuring that tested and verified code gets deployed to production with minimal human intervention. Rollback strategies should also be in place in case a deployment introduces unforeseen issues. Thank you very much.
 
