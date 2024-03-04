@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * SpringSecurity配置
- * 
  */
 @Configuration
 @EnableWebSecurity
@@ -32,11 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
 }
