@@ -9,3 +9,6 @@
         </foreach>
     </insert>
 </mapper>
+<!--
+   <在这个<insert>标签中，通过使用<foreach>标签遍历传入的list集合，并为每个项使用#{item.propertyName}的方式绑定参数，MyBatis 会自动处理这些参数以防止SQL注入。这是因为当使用#{}进行参数绑定时，MyBatis 会使用PreparedStatement，它具有自动防止SQL注入的功能，因为所有的参数值都会被当做参数而不是SQL代码的一部分来处理。
+-->
