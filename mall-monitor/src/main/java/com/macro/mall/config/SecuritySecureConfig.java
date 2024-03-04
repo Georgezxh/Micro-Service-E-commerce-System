@@ -36,6 +36,13 @@ public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
                 //3.开启http basic支持，admin-client注册时需要使用
                 .httpBasic().and()
                 .csrf()
+                //4.开启基于cookie的csrf保护
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                //5.忽略这些路径的csrf保护以便admin-client注册
+                .ignoringAntMatchers(
+                        adminContextPath + "/instances",
+                        adminContextPath + "/actuator/**"
+                );
                 
     }
 }
